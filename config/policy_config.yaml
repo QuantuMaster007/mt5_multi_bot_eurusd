@@ -1,0 +1,41 @@
+policy:
+  # Disable strategy after N consecutive losses
+  consecutive_loss_disable_threshold: 4
+
+  # Re-enable after N candles of observation
+  re_enable_observation_candles: 20
+
+  # Disable strategy if execution failure rate > threshold over rolling window
+  exec_failure_rate_window: 20       # last N attempts
+  exec_failure_rate_threshold: 0.4   # 40% failure rate triggers pause
+
+  # Regime-based gating
+  regime_gating:
+    mean_reversion:
+      blocked_regimes: [strong_trend, breakout]
+    range_trading:
+      blocked_regimes: [strong_trend, breakout, low_liquidity]
+    scalping:
+      blocked_regimes: [high_spread, low_liquidity, news_window]
+
+  # Session-based gating
+  session_gating:
+    scalping:
+      allowed_sessions: [london, overlap]
+    mean_reversion:
+      allowed_sessions: [london, new_york, overlap]
+    range_trading:
+      allowed_sessions: [london, new_york, overlap]
+
+  # Spread-based gating (pips)
+  spread_block:
+    mean_reversion: 2.5
+    range_trading: 2.0
+    scalping: 1.5
+
+  # Strategy priority when competing intents conflict
+  # Higher = preferred when conflict_policy is highest_ranked
+  strategy_priority:
+    mean_reversion: 2
+    range_trading: 1
+    scalping: 3

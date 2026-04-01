@@ -1,0 +1,19 @@
+strategy: range_trading
+enabled: true
+symbol: EURUSD
+timeframe: H1
+
+# Support/Resistance detection
+sr_lookback_candles: 50
+sr_zone_pips: 5.0              # zone width in pips
+
+# Entry confirmation: candle must close back inside zone
+rejection_confirmation: true
+
+# ATR for stop placement
+atr_period: 14
+stop_atr_mult: 1.0
+take_profit_atr_mult: 2.0
+
+max_positions: 1
+magic_offset: 200

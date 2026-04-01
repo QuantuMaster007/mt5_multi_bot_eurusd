@@ -1,0 +1,8 @@
+mt5:
+  login: 0                  # override via .env MT5_LOGIN
+  password: ""              # override via .env MT5_PASSWORD
+  server: ""                # override via .env MT5_SERVER
+  path: ""                  # override via .env MT5_PATH — leave blank to use default
+  timeout_ms: 10000
+  max_retries: 3
+  retry_delay_seconds: 5

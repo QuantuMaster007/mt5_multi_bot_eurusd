@@ -1,0 +1,22 @@
+execution:
+  # Fill modes to try in priority order if broker supports multiple
+  fill_mode_priority: [ioc, fok, return]
+
+  # order_check before every send
+  pre_check_enabled: true
+
+  # How many times to retry a transient failure
+  transient_retry_count: 2
+  transient_retry_delay_seconds: 1
+
+  # Cooldown after hard rejection (retcode that should not be retried)
+  hard_reject_cooldown_seconds: 60
+
+  # Max slippage in points allowed on market orders
+  max_slippage_points: 20
+
+  # Magic number base; each strategy adds its own offset
+  magic_base: 200000
+
+  # Deviation in points for market orders
+  deviation_points: 20

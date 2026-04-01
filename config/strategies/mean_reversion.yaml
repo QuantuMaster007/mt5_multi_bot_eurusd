@@ -1,0 +1,30 @@
+strategy: mean_reversion
+enabled: true
+symbol: EURUSD
+timeframe: M15        # MetaTrader timeframe string
+
+# Bollinger Bands
+bb_period: 20
+bb_std: 2.0
+
+# RSI
+rsi_period: 14
+rsi_oversold: 35
+rsi_overbought: 65
+
+# EMA trend filter
+ema_period: 50
+# Allow long only when price > EMA, short only when price < EMA
+ema_trend_filter: true
+
+# Volatility filter: skip if ATR < threshold (quiet market)
+atr_period: 14
+atr_min_pips: 4.0
+
+# Risk
+stop_loss_atr_mult: 1.5
+take_profit_atr_mult: 2.5
+max_positions: 1
+
+# Magic number offset (added to magic_base)
+magic_offset: 100

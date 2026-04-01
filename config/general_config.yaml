@@ -1,0 +1,9 @@
+general:
+  run_mode: paper            # paper | demo | live
+  symbols: [EURUSD]
+  primary_symbol: EURUSD
+  loop_interval_seconds: 5
+  max_restart_attempts: 3
+  restart_cooldown_seconds: 30
+
+timezone: UTC

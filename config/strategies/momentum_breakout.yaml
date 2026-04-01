@@ -1,0 +1,26 @@
+strategy: momentum_breakout
+enabled: true
+symbol: EURUSD
+timeframe: H1
+
+magic_offset: 400        # Must be unique across all loaded strategies
+max_positions: 1
+
+# ─── Breakout detection ───────────────────────────────────────────────────────
+lookback_candles: 20     # Rolling window for high/low channel (bars)
+buffer_pips: 1.0         # Extra pips beyond channel edge to confirm break
+
+# ─── Momentum filter ──────────────────────────────────────────────────────────
+adx_period: 14
+adx_threshold: 25.0      # Minimum ADX — trades only when trend is present
+
+# ─── Volatility expansion filter ─────────────────────────────────────────────
+atr_period: 14
+atr_expansion_mult: 1.2  # ATR must be > 1.2× its 50-bar median
+
+# ─── Risk ─────────────────────────────────────────────────────────────────────
+stop_atr_mult: 1.5       # SL distance = 1.5 × ATR
+take_profit_rr: 2.0      # TP = SL distance × 2.0 (1:2 risk-reward)
+
+# ─── Overtrading guard ────────────────────────────────────────────────────────
+min_bars_between: 5      # Minimum candles between consecutive entries

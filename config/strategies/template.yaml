@@ -1,0 +1,44 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# STRATEGY CONFIG TEMPLATE
+# Copy this file to config/strategies/<your_strategy_name>.yaml
+# The filename (without .yaml) must match the metadata.name in your class.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Strategy identity (should match metadata.name in your class)
+strategy: my_template
+
+# Set to false to prevent the plugin loader from loading this strategy
+enabled: true
+
+# ─── Symbol & timeframe ───────────────────────────────────────────────────────
+symbol: EURUSD        # Must be a symbol available on your broker
+timeframe: M15        # MT5 timeframe: M1 M5 M15 M30 H1 H4 D1 W1 MN1
+
+# ─── Magic number ─────────────────────────────────────────────────────────────
+# Unique integer added to magic_base (200000) to form this strategy's MT5
+# magic number. Pick a value not used by any other loaded strategy.
+# Used to filter positions, attribute trades, and build reports.
+magic_offset: 400
+
+# ─── Position sizing ──────────────────────────────────────────────────────────
+max_positions: 1        # How many simultaneous open positions for this strategy
+
+# ─── Indicator parameters ─────────────────────────────────────────────────────
+# Replace these with your actual indicator settings.
+fast_ema: 9
+slow_ema: 21
+rsi_period: 14
+
+# ─── Risk parameters ──────────────────────────────────────────────────────────
+stop_loss_pips:   15.0  # Stop-loss distance in pips
+take_profit_pips: 25.0  # Take-profit distance in pips
+
+# ─── Filter parameters ────────────────────────────────────────────────────────
+max_spread_pips: 2.0    # Skip signal if spread exceeds this (pips)
+
+# ─── Session filter ───────────────────────────────────────────────────────────
+# Uncomment to restrict trading to specific sessions.
+# Available: london | new_york | overlap
+# allowed_sessions:
+#   - london
+#   - overlap

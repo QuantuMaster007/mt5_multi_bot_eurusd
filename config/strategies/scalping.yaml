@@ -1,0 +1,27 @@
+strategy: scalping
+enabled: true
+symbol: EURUSD
+timeframe: M5
+
+# EMA crossover
+fast_ema: 9
+slow_ema: 21
+
+# Momentum filter
+momentum_period: 10
+momentum_threshold: 0.0002    # minimum momentum magnitude
+
+# ATR spread filter
+atr_period: 14
+max_spread_atr_ratio: 0.3     # spread must be < 30% of ATR
+
+# Risk
+stop_loss_pips: 8.0
+take_profit_pips: 12.0
+
+# Frequency limits
+max_trades_per_hour: 4
+min_bars_between_trades: 3
+
+max_positions: 1
+magic_offset: 300

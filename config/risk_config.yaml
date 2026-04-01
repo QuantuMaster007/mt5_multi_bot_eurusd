@@ -1,0 +1,32 @@
+risk:
+  # Per-trade risk as fraction of account balance
+  default_risk_per_trade: 0.005     # 0.5%
+
+  # Hard caps
+  max_daily_loss_fraction: 0.02     # 2% of balance
+  max_weekly_loss_fraction: 0.05    # 5%
+  max_drawdown_fraction: 0.08       # 8% from equity high water mark
+  max_consecutive_losses: 5
+
+  # Frequency limits
+  max_trades_per_hour: 6
+  max_trades_per_session: 20
+
+  # Spread-based rejection
+  spread_block_pips: 4.0
+
+  # After hitting daily loss limit: pause for rest of day
+  daily_loss_pause: true
+
+  # Cooldown after consecutive losses (seconds)
+  consecutive_loss_cooldown_seconds: 1800
+
+portfolio:
+  max_total_positions: 4
+  max_same_direction_lots: 0.2      # max net long or net short lots
+  max_gross_lots: 0.3
+  max_positions_per_strategy: 1
+
+  # Conflict resolution when multiple strategies want to enter same direction
+  # options: first_wins | highest_ranked | block_all
+  conflict_policy: first_wins
